@@ -1,0 +1,6 @@
+*.pdf
+*.qpf
+*.qsf
+*.qws
+*.bak
+db/
