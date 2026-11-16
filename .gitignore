@@ -1,6 +1,14 @@
+<<<<<<< HEAD
 *.pdf
+=======
+db/
+>>>>>>> a252a34 (Added decoder and modified fetch modules, wired into top module Processor.)
 *.qpf
 *.qsf
 *.qws
 *.bak
+<<<<<<< HEAD
 db/
+=======
+*.pdf
+>>>>>>> a252a34 (Added decoder and modified fetch modules, wired into top module Processor.)

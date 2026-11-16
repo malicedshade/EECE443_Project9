@@ -10,7 +10,11 @@
     RegWrite controls if we can write WD3 to the register specified by A3.
     RD1 and RD2 read the data from the registers specified by RA1 and RA2 respectively.
 
+<<<<<<< HEAD
     What's Rn, Rd, and Rm, and so on is specified mainly by the specific instruction.
+=======
+    What's Rn, Rd, and Rm, and so on is specified by the specific instruction.
+>>>>>>> a252a34 (Added decoder and modified fetch modules, wired into top module Processor.)
 */
 module RegFile (
     input  logic       clk,
@@ -24,9 +28,15 @@ module RegFile (
     output logic[31:0] RD2
 );
 
+<<<<<<< HEAD
 logic[31:0] registers[0:15];
 
 assign registers[15] = R15; // R15 special from the muxes.
+=======
+// R15 special from the muxes and not stored here.
+logic[31:0] registers[0:14];
+
+>>>>>>> a252a34 (Added decoder and modified fetch modules, wired into top module Processor.)
 assign RD1 = registers[RA1];
 assign RD2 = registers[RA2];
 
