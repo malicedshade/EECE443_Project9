@@ -27,8 +27,8 @@ module RegFile (
 // R15 special from the muxes and not stored here.
 logic[31:0] registers[0:14];
 
-assign RD1 = registers[RA1];
-assign RD2 = registers[RA2];
+assign RD1 = (RA1 == 4'd15) ? R15 : registers[RA1];
+assign RD2 = (RA2 == 4'd15) ? R15 : registers[RA2];
 
 // Writes are clocked.
 always_ff @( posedge clk ) begin

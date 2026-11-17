@@ -20,14 +20,14 @@ module InstructionDecoder (
     input  logic       clk,
     input  logic[31:0] Instr,
     input  logic[31:0] Result,
-    input  logic       PC_plus4,
+    input  logic[31:0] PC_plus4,
     input  logic[1:0]  RegSrc,
     input  logic       RegWrite,
     input  logic[1:0]  ImmSrc,
     input  logic       ALUSrc,
-    output logic       SrcA,
-    output logic       SrcB,
-    output logic       WriteData
+    output logic[31:0] SrcA,
+    output logic[31:0] SrcB,
+    output logic[31:0] WriteData
 );
     logic[31:0] RD1_out;
     logic[31:0] RD2_out;
@@ -36,10 +36,10 @@ module InstructionDecoder (
     logic[3:0]  RA2_in;
     logic[31:0] ExtImm;
 
-    Mux4_2x1 instr19_16x15  (.a(Instr[19:16]), .b(4'd15), 
+    Mux4_2x1 instr19_16x15  (.a(4'd15), .b(Instr[19:16]),
                              .sel(RegSrc[0]), 
                              .out(RA1_in));
-    Mux4_2x1 instr3_0x15_12 (.a(Instr[3:0]), .b(Instr[15:12]), 
+    Mux4_2x1 instr3_0x15_12 (.a(Instr[15:12]), .b(Instr[3:0]),
                              .sel(RegSrc[1]), 
                              .out(RA2_in));
     Adder32 PCPlus8         (.incr(32'd4),
@@ -61,7 +61,7 @@ module InstructionDecoder (
 
     assign SrcA      = RD1_out;
     assign WriteData = RD2_out;
-    Mux32_2x1 srcB_m (.a(RD2_out), .b(ExtImm), 
+    Mux32_2x1 srcB_m (.a(ExtImm), .b(RD2_out), 
                       .sel(ALUSrc), 
                       .out(SrcB));
 endmodule

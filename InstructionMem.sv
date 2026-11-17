@@ -4,7 +4,8 @@ module InstructionMem (input logic [31:0] a,
 
     initial begin
         mem[0] = 32'hE04F000F;
-        mem[1] = 32'hE280300A;
+        mem[1] = 32'hE04F000F;
+        mem[2] = 32'hE04F000F;
     end
 
     assign rd = mem[a[9:2]];

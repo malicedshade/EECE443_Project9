@@ -2,8 +2,8 @@ module InstructionFetch (input logic clk,
 						 input logic rst, 
 						 input logic[31:0] br_addr, 
 						 input logic PC_src,
-                         output logic[31:0] instr,
-                         output logic[31:0] PC_plus4);
+                   output logic[31:0] instr,
+                   output logic[31:0] PC_plus4);
     logic[31:0] pc_next;
     logic[31:0] pc_o;
 
